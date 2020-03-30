@@ -1,9 +1,12 @@
 pipeline{
 	agent any
+	environment{
+		Tool = 'Jenkins'
+	}
 	stages{
 		stage('FileFromGit'){
 			steps{
-				echo "Hello Rajesh!"
+				echo "$Tool is the nice Tool"
 			}
 		}
 	}

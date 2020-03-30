@@ -1,12 +1,21 @@
 pipeline{
 	agent any
-	environment{
-		Tool = 'Jenkins'
-	}
+	
 	stages{
-		stage('FileFromGit'){
+		stage('Build Stage'){
+			when{
+			  changelog 'Build'
+			}
 			steps{
-				echo "$Tool is the nice Tool"
+				echo "This Stage is used for Build"
+			}
+		}
+		stage('Deploy Stage'){
+			when{
+				changelog 'Deploy'
+			}
+			steps{
+				echo "This stage is used for Deploy"
 			}
 		}
 	}

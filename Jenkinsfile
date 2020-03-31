@@ -1,4 +1,4 @@
-pipeline{
+/*pipeline{
 	agent any
 	
 	stages{
@@ -16,6 +16,29 @@ pipeline{
 			}
 			steps{
 				echo "This stage is used for Deploy"
+			}
+		}
+	}
+}*/
+
+pipeline{
+	agent any
+	
+	stages{
+		stage('Java'){
+			when{
+			  changeset '*.java'
+			}
+			steps{
+				echo "This is Java Program"
+			}
+		}
+		stage('Perl'){
+			when{
+				changeset '*.pl'
+			}
+			steps{
+				echo "This is Perl program"
 			}
 		}
 	}
